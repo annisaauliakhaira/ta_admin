@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\user;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class classes extends JsonResource
+class lecturer extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,11 +14,13 @@ class classes extends JsonResource
      */
     public function toArray($request)
     {
-        return[
+        return [
             'id'=>$this->id,
+            'nik'=>$this->nik,
+            'nip'=>$this->nip,
             'name'=>$this->name,
-            'course'=>$this->course->name,
-            'period'=>$this->period->year,
+            'addres'=>$this->address,
+            'gender'=>$this->gender
         ];
     }
 }

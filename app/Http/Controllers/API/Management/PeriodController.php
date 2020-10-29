@@ -1,24 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\Management;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\classes;
-use App\Http\Resources\classes as classesResource;
+use App\period;
+use App\Http\Resources\management\period as periodeResource;
 
-class ClassesController extends Controller
+class PeriodController extends Controller
 {
     public function getAllData(Request $request)
     {
         try{
-            $data=classes::select('classes.*')->get();
+            $data = period::all();
             return response()->json([
-                'success'=>true,
-                'total_row'=>$data->count(),
-                'data'=>classesResource::collection($data)
-            ]);
+              'success' => true,
+              'total_row' => $data->count(),
+              'data'    => periodeResource::collection($data),
+            ], 200);
         }
+
         catch(\Exception $e){
             return response()->json([
                 'success' => false,

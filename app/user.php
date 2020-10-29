@@ -37,4 +37,8 @@ class User extends Authenticatable
     {
         return $this->hasone(student::class, 'id', 'id');
     }
+    
+    public function AauthAcessToken(){
+        return $this->hasMany('\App\OauthAccessToken');
+    }
 }

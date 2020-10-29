@@ -6,19 +6,29 @@ use Illuminate\Database\Eloquent\Model;
 
 class lecturer_class extends Model
 {
-    protected $table = "lecturer_class";
+    protected $table = "lecturerclass";
     
     protected $fillable =[
         'id', 'class_id', 'lecturer_id',
     ];
 
-    public function classes(Type $var = null)
+    public function classe(Type $var = null)
     {
         return $this->hasmany(classes::class, 'id', 'class_id');
     }
 
-    public function lecturer(Type $var = null)
+    public function classes(Type $var = null)
+    {
+        return $this->hasone(classes::class, 'id', 'class_id');
+    }
+
+    public function lecturers(Type $var = null)
     {
         return $this->hasmany(lecturer::class, 'id', 'lecturer_id');
+    }
+
+    public function lecturer(Type $var = null)
+    {
+        return $this->hasone(lecturer::class, 'id', 'lecturer_id');
     }
 }

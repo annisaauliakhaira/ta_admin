@@ -1,18 +1,16 @@
 <?php
 
-	namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\User;
 
-	use Illuminate\Http\Request;
-	use App\Http\Controllers\Controller;
-	use App\Http\Resources\user;
-	use Illuminate\Support\Facades\Auth;
-	use Validator;
-	use App\Http\Resources\lecturer;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Http\Resources\user\user;
+use Illuminate\Support\Facades\Auth;
+use Validator;
 
-	class LecturerController extends Controller
-	{
-
-		public $successStatus = 200;
+class UserController extends Controller
+{
+    public $successStatus = 200;
 
 		public function login(Request $request){
 
@@ -35,14 +33,19 @@
 			}
 		}
 
+
 		public function details()
 		{
-            $user = Auth::user();
-            $lecturer = Auth::user()->lecturer;
+			$user = Auth::user();
+			return response()->json(['success' => $user], $this->successStatus);
+		}
+
+		public function logout()
+		{
+			$user = Auth::user()->logout();
 			return response()->json([
                 'success' => true,
-                'user'=>new user($user),
-                'lecturer'=> new lecturer($lecturer)
+				'message' =>"Logout Berhasil"
             ], $this->successStatus);
 		}
-	}
+}

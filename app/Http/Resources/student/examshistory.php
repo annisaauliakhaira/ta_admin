@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\student;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class classes extends JsonResource
+class examshistory extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,11 +14,6 @@ class classes extends JsonResource
      */
     public function toArray($request)
     {
-        return[
-            'id'=>$this->id,
-            'name'=>$this->name,
-            'course'=>$this->course->name,
-            'period'=>$this->period->year,
-        ];
+        return parent::toArray($request);
     }
 }

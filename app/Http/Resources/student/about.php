@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\student;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class staff extends JsonResource
+class about extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +16,9 @@ class staff extends JsonResource
     {
         return[
             'id'=>$this->id,
-            'nik'=>$this->nik,
-            'nip'=>$this->nip,
+            'name'=>$this->name,
+            'nim'=>$this->nip,
+            'email'=>$this->user->email,
             'gender'=>$this->gender
         ];
     }
