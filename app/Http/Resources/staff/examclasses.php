@@ -16,6 +16,8 @@ class examclasses extends JsonResource
     {
         $presence = $this->classe->exam_schedule->presenceKrs($this->id)->first();
         return[
+            'schedule_code'=>$this->classe->exam_schedule->id,
+            'lecturer_name'=>$this->classe->lecturer_class->lecturer->name,
             'krs_id'=>$this->id,
             'name'=>$this->student->name,
             'nim'=>$this->student->nim,

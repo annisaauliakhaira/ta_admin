@@ -23,6 +23,7 @@ Route::group(['prefix' => 'lecturer'], function(){
         Route::post('about', 'API\Dosen\AboutController@getAllData');
         Route::post('examclass', 'API\Dosen\ExamClassesController@getAllData');
         Route::post('examclass/{id}', 'API\Dosen\ExamClassesController@getData');
+        Route::get('presence', 'API\Dosen\presenceController@getData');
         Route::post('logout', 'API\User\LecturerController@logout');
         
     });
