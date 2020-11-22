@@ -12,7 +12,7 @@ class admin extends Model
         'id', 'nik', 'nip',  'name', 'gender',
     ];
 
-    public function user(Type $var = null)
+    public function user()
     {
         return $this->hasone(user::class, 'id', 'id');
     }

@@ -12,42 +12,42 @@ class classes extends Model
         'id', 'name', 'courses_id', 'period_id',
     ];
 
-    public function courses(Type $var = null)
+    public function courses()
     {
         return $this->hasmany(courses::class, 'id', 'courses_id');
     }
 
-    public function course(Type $var = null)
+    public function course()
     {
         return $this->hasone(courses::class, 'id', 'courses_id');
     }
 
-    public function periods(Type $var = null)
+    public function periods()
     {
         return $this->hasmany(period::class, 'id', 'period_id');
     }
     
-    public function period(Type $var = null)
+    public function period()
     {
         return $this->hasone(period::class, 'id','period_id');
     }
 
-    public function lecturer_class(Type $var = null)
+    public function lecturer_class()
     {
             return $this->hasOne(lecturer_class::class, 'class_id','id');
     }
 
-    public function exam_schedule(Type $var = null)
+    public function exam_schedule()
     {
         return $this->hasone(exam_schedule::class, 'class_id', 'id');
     }
 
-    public function krs(Type $var = null)
+    public function krs()
     {
         return $this->hasone(krs::class, 'class_id', 'id');
     }
 
-    public function krses(Type $var = null)
+    public function krses()
     {
         return $this->hasMany(krs::class, 'class_id', 'id');
     }

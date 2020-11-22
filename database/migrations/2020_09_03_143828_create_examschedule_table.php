@@ -23,7 +23,6 @@ class CreateExamscheduleTable extends Migration
             $table->string('class_id', 10);
             $table->integer('staff_id');
             $table->integer('examtype_id');
-            $table->text('news_event');
             $table->foreign('room_id')->references('id')->on('room')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('class_id')->references('id')->on('classes')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade')->onUpdate('cascade');

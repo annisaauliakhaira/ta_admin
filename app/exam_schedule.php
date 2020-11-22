@@ -12,47 +12,51 @@ class exam_schedule extends Model
     public $primaryKey = "id";
 
     protected $fillable = [
-        'id', 'start_hour', 'ending_hour', 'date', 'status', 'room_id', 'class_id', 'staff_id', 'examtype_id', 'news_event',
+        'id', 'start_hour', 'ending_hour', 'date', 'status', 'room_id', 'class_id', 'staff_id', 'examtype_id', 
     ];
 
-    public function rooms(Type $var = null)
+    public function rooms()
     {
         return $this->hasmany(room::class, 'id', 'room_id');
     }
 
-    public function room(Type $var = null)
+    public function room()
     {
         return $this->hasone(room::class, 'id', 'room_id');
     }
 
-    public function classes(Type $var = null)
+    public function classes()
     {
         return $this->hasmany(classes::class, 'id', 'class_id');
     }
 
-    public function classe(Type $var = null)
+    public function classe()
     {
         return $this->hasone(classes::class, 'id', 'class_id');
     }
 
-    public function staffs(Type $var = null)
+    public function staffs()
     {
         return $this->hasmany(staff::class, 'id', 'staff_id');
     }
 
-    public function staff(Type $var = null)
+    public function staff()
     {
         return $this->hasone(staff::class, 'id', 'staff_id');
     }
 
-    public function examtypes(Type $var = null)
+    public function examtypes()
     {
         return $this->hasmany(examtype::class, 'id', 'examtype_id');
     }
 
-    public function examtype(Type $var = null)
+    public function examtype()
     {
         return $this->hasone(examtype::class, 'id', 'examtype_id');
+    }
+    public function newsEvents()
+    {
+        return $this->hasMany(newsevent::class, 'exam_id', 'id');
     }
 
     public function presenceKrs($id=null)

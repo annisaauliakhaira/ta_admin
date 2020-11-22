@@ -18,7 +18,6 @@ class examscheduleseeder extends Seeder
                 'class_id'=>'1',
                 'staff_id'=>'4',
                 'examtype_id'=>2,
-                'news_event'=>'dira berdiskusi dengan murda'
             ],
             [
                 'id'=>'A12',
@@ -30,7 +29,6 @@ class examscheduleseeder extends Seeder
                 'class_id'=>'2',
                 'staff_id'=>'5',
                 'examtype_id'=>2,
-                'news_event'=>'aldo sering minta izin ke toilet'
             ],
             [
                 'id'=>'B23',
@@ -42,7 +40,6 @@ class examscheduleseeder extends Seeder
                 'class_id'=>'3',
                 'staff_id'=>'5',
                 'examtype_id'=>2,
-                'news_event'=>'-'
             ],
             [
                 'id'=>'B24',
@@ -54,7 +51,6 @@ class examscheduleseeder extends Seeder
                 'class_id'=>'4',
                 'staff_id'=>'4',
                 'examtype_id'=>2,
-                'news_event'=>'-'
             ],
         ]);
     }

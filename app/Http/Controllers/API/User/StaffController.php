@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\user\staff;
 use App\Http\Resources\user\user;
+use App\staff as AppStaff;
 use Validator;
 
 class StaffController extends Controller
@@ -23,8 +24,16 @@ class StaffController extends Controller
             if($validator->fails()){
                 return response()->json(['error' => $validator->errors()],402);
             }
+            $username=$request->username;
+            $isstaff=AppStaff::select('staff.*', 'user.username')->join('user', 'staff.id', '=', 'user.id')
+            ->where('username', $request->username)->orwhere('nip', $request->username)->first();
+            if(!$isstaff){
+                $validator->errors()->add('username','Wrong Username');
+                return $this->MessageError($validator->errors(), 422);
+            }
+            $username=$isstaff->username;
 
-			if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){
+			if(Auth::attempt(['username' =>$username, 'password' => $request->password])){
 				$user = Auth::user();
 				$token =  $user->createToken('nApp')->accessToken;
 				return response()->json([
@@ -68,5 +77,18 @@ class StaffController extends Controller
                 'success' => true,
 				'message' =>"Logout Berhasil"
             ], $this->successStatus);
+        }
+
+        public function isLogin()
+        {
+            try{
+                $user = Auth::user();
+                if($user){
+                    return $this->MessageSuccess(['isLogin'=>true]);
+                }
+                return $this->MessageError(['isLogin'=>false], 401);
+            }catch(\Exception $th){
+                return $th->MessageError(['isLogin'=>false], 401);
+            }
         }
 }

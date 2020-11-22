@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(examscheduleseeder::class);
         $this->call(krsseeder::class);
         $this->call(presenceseeder::class);
+        $this->call(newseventseeder::class);
     }
 }
