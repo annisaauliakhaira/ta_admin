@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class classes extends Model
 {
     protected $table="classes";
+
+    protected $primaryKey = 'id'; // or null
+
+    public $incrementing = false;
+
+    // In Laravel 6.0+ make sure to also set $keyType
+    protected $keyType = 'string';
     
     protected $fillable = [
         'id', 'name', 'courses_id', 'period_id',
@@ -42,8 +49,11 @@ class classes extends Model
         return $this->hasone(exam_schedule::class, 'class_id', 'id');
     }
 
-    public function krs()
+    public function krs($studentId=null)
     {
+        if($studentId){
+            return $this->hasone(krs::class, 'class_id', 'id')->where('student_id',$studentId);
+        }
         return $this->hasone(krs::class, 'class_id', 'id');
     }
 

@@ -20,7 +20,6 @@ class lecturer extends JsonResource
             'nip'=>$this->nip,
             'name'=>$this->name,
             'addres'=>$this->address,
-            'gender'=>$this->gender
         ];
     }
 }

@@ -9,55 +9,135 @@ class lecturerclassesseeder extends Seeder
     {
         DB::table('lecturerclass')->insert([
             [
-                'id'=>'1',
-                'class_id'=>'1',
+                'id'=>'LC1',
+                'class_id'=>'TSI203-01',
                 'lecturer_id'=>1
             ],
             [
-                'id'=>'2',
-                'class_id'=>'1',
-                'lecturer_id'=>2 
+                'id'=>'LC2',
+                'class_id'=>'TSI203-02',
+                'lecturer_id'=>1 
             ],
             [
-                'id'=>'3',
-                'class_id'=>'2',
+                'id'=>'LC3',
+                'class_id'=>'TSI309-01',
+                'lecturer_id'=>5
+            ],
+            [
+                'id'=>'LC4',
+                'class_id'=>'TSI309-02',
+                'lecturer_id'=>5
+            ],
+            [
+                'id'=>'LC5',
+                'class_id'=>'TSI409-01',
                 'lecturer_id'=>3
             ],
             [
-                'id'=>'4',
-                'class_id'=>'3',
+                'id'=>'LC6',
+                'class_id'=>'TSI409-02',
+                'lecturer_id'=>3
+            ],
+            [
+                'id'=>'LC7',
+                'class_id'=>'TSI207-01',
+                'lecturer_id'=>6
+            ],
+            [
+                'id'=>'LC8',
+                'class_id'=>'TSI207-02',
+                'lecturer_id'=>6
+            ],
+            [
+                'id'=>'LC9',
+                'class_id'=>'EKM103-01',
+                'lecturer_id'=>7
+            ],
+            [
+                'id'=>'LC10',
+                'class_id'=>'EKM103-02',
+                'lecturer_id'=>7
+            ],
+            [
+                'id'=>'LC11',
+                'class_id'=>'TSI103-01',
+                'lecturer_id'=>1
+            ],
+            [
+                'id'=>'LC12',
+                'class_id'=>'TSI103-02',
+                'lecturer_id'=>1
+            ],
+            [
+                'id'=>'LC13',
+                'class_id'=>'TSI303-01',
                 'lecturer_id'=>2
             ],
             [
-                'id'=>'5',
-                'class_id'=>'4',
-                'lecturer_id'=>1
-            ],
-            [
-                'id'=>'6',
-                'class_id'=>'4',
-                'lecturer_id'=>3
-            ],
-            [
-                'id'=>'7',
-                'class_id'=>'5',
+                'id'=>'LC14',
+                'class_id'=>'TSI303-02',
                 'lecturer_id'=>2
             ],
             [
-                'id'=>'8',
-                'class_id'=>'6',
-                'lecturer_id'=>1
-            ],
-            [
-                'id'=>'9',
-                'class_id'=>'8',
+                'id'=>'LC15',
+                'class_id'=>'TSI403-01',
                 'lecturer_id'=>3
             ],
             [
-                'id'=>'10',
-                'class_id'=>'9',
+                'id'=>'LC16',
+                'class_id'=>'TSI403-02',
                 'lecturer_id'=>3
-            ]
+            ],
+            [
+                'id'=>'LC17',
+                'class_id'=>'TSI405-01',
+                'lecturer_id'=>5
+            ],
+            [
+                'id'=>'LC18',
+                'class_id'=>'TSI405-02',
+                'lecturer_id'=>5
+            ],
+            [
+                'id'=>'LC19',
+                'class_id'=>'TSI301-01',
+                'lecturer_id'=>5
+            ],
+            [
+                'id'=>'LC20',
+                'class_id'=>'TSI301-02',
+                'lecturer_id'=>5
+            ],
+            [
+                'id'=>'LC21',
+                'class_id'=>'TSI311-01',
+                'lecturer_id'=>6
+            ],
+            [
+                'id'=>'LC22',
+                'class_id'=>'TSI311-02',
+                'lecturer_id'=>6
+            ],
+            [
+                'id'=>'LC23',
+                'class_id'=>'TSI401-01',
+                'lecturer_id'=>4
+            ],
+            [
+                'id'=>'LC24',
+                'class_id'=>'TSI401-02',
+                'lecturer_id'=>4
+            ],
+            [
+                'id'=>'LC25',
+                'class_id'=>'TSI205-01',
+                'lecturer_id'=>7
+            ],
+            [
+                'id'=>'LC26',
+                'class_id'=>'TSI205-02',
+                'lecturer_id'=>7
+            ],
         ]);
     }
 }

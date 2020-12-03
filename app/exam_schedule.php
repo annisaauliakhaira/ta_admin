@@ -8,8 +8,13 @@ class exam_schedule extends Model
 {
     protected $table = "examschedule";
 
+    
+    protected $primaryKey = 'id'; // or null
+
     public $incrementing = false;
-    public $primaryKey = "id";
+
+    // In Laravel 6.0+ make sure to also set $keyType
+    protected $keyType = 'string';
 
     protected $fillable = [
         'id', 'start_hour', 'ending_hour', 'date', 'status', 'room_id', 'class_id', 'staff_id', 'examtype_id', 

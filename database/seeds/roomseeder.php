@@ -12,7 +12,7 @@ class roomseeder extends Seeder
                 'id'=>'1',
                 'name'=>'A 1.1',
                 'latitude'=>912732987928.0000993093,
-                'longitude'=>232392898239.3829283,
+                'longitude'=>232392898239.3829283, 
                 'building_id'=>'1'
             ],
             [

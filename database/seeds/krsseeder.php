@@ -9,45 +9,109 @@ class krsseeder extends Seeder
     {
         DB::table('krs')->insert([
             [
-                'id'=>'1',
-                'class_id'=>'1',
-                'student_id'=>'6'
+                'id'=>'AA1',
+                'class_id'=>'TSI203-01',
+                'student_id'=>'24'
             ],
             [
-                'id'=>'2',
-                'class_id'=>'1',
-                'student_id'=>'7'
+                'id'=>'AA2',
+                'class_id'=>'TSI203-01',
+                'student_id'=>'26'
             ],
             [
-                'id'=>'3',
-                'class_id'=>'1',
-                'student_id'=>'8'
+                'id'=>'AA3',
+                'class_id'=>'TSI203-01',
+                'student_id'=>'28'
             ],
             [
-                'id'=>'4',
-                'class_id'=>'1',
-                'student_id'=>'9'
+                'id'=>'AA4',
+                'class_id'=>'TSI203-01',
+                'student_id'=>'30'
             ],
             [
-                'id'=>'6',
-                'class_id'=>'2',
-                'student_id'=>'6'
+                'id'=>'AA5',
+                'class_id'=>'TSI203-01',
+                'student_id'=>'32'
+            ],
+
+            [
+                'id'=>'BB1',
+                'class_id'=>'TSI203-02',
+                'student_id'=>'25'
             ],
             [
-                'id'=>'7',
-                'class_id'=>'2',
-                'student_id'=>'7'
+                'id'=>'BB2',
+                'class_id'=>'TSI203-02',
+                'student_id'=>'27'
             ],
             [
-                'id'=>'8',
-                'class_id'=>'2',
-                'student_id'=>'8'
+                'id'=>'BB3',
+                'class_id'=>'TSI203-02',
+                'student_id'=>'29'
             ],
             [
-                'id'=>'9',
-                'class_id'=>'2',
-                'student_id'=>'9'
-            ]
+                'id'=>'BB4',
+                'class_id'=>'TSI203-02',
+                'student_id'=>'31'
+            ],
+            [
+                'id'=>'BB5',
+                'class_id'=>'TSI203-02',
+                'student_id'=>'33'
+            ],
+
+            
+            [
+                'id'=>'CC1',
+                'class_id'=>'TSI309-01',
+                'student_id'=>'14'
+            ],
+            [
+                'id'=>'CC2',
+                'class_id'=>'TSI309-01',
+                'student_id'=>'16'
+            ],
+            [
+                'id'=>'CC3',
+                'class_id'=>'TSI309-01',
+                'student_id'=>'18'
+            ],
+            [
+                'id'=>'CC4',
+                'class_id'=>'TSI309-01',
+                'student_id'=>'20'
+            ],
+            [
+                'id'=>'CC5',
+                'class_id'=>'TSI309-01',
+                'student_id'=>'22'
+            ],
+            
+            [
+                'id'=>'DD1',
+                'class_id'=>'TSI309-02',
+                'student_id'=>'15'
+            ],
+            [
+                'id'=>'DD2',
+                'class_id'=>'TSI309-02',
+                'student_id'=>'17'
+            ],
+            [
+                'id'=>'DD3',
+                'class_id'=>'TSI309-02',
+                'student_id'=>'19'
+            ],
+            [
+                'id'=>'DD4',
+                'class_id'=>'TSI309-02',
+                'student_id'=>'21'
+            ],
+            [
+                'id'=>'DD5',
+                'class_id'=>'TSI309-02',
+                'student_id'=>'23'
+            ],
         ]);
     }
 }

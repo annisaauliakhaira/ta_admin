@@ -9,30 +9,100 @@ class courseseeder extends Seeder
     {
         DB::table('courses')->insert([
             [
-                'id'=>'1',
-                'name'=>'Big Data',
+                'id'=>'TSI203',
+                'name'=>'Bahasa Pemograman Lanjut',
                 'sks'=>'3'
             ],
             [
-                'id'=>'2',
+                'id'=>'TSI309',
                 'name'=>'Basis Data Lanjut',
                 'sks'=>'3'
             ],
             [
-                'id'=>'3',
-                'name'=>'Pemograman Web',
+                'id'=>'TSI409',
+                'name'=>'Customer Relationship Management',
                 'sks'=>'3'
             ],
             [
-                'id'=>'4',
-                'name'=>'Data Mining',
+                'id'=>'TSI207',
+                'name'=>'Dasar Infrastuktur Teknologi',
                 'sks'=>'3'
             ],
             [
-                'id'=>'5',
-                'name'=>'Riset Operasional',
+                'id'=>'EKM103',
+                'name'=>'Dasar-Dasar Manajemen',
                 'sks'=>'2'
-            ]
+            ],
+            [
+                'id'=>'TSI103',
+                'name'=>'Dasar-Dasar Pemrograman',
+                'sks'=>'3'
+            ],
+            [
+                'id'=>'TSI303',
+                'name'=>'Data Mining',
+                'sks'=>'2'
+            ],
+            [
+                'id'=>'TSI403',
+                'name'=>'E-Commerce',
+                'sks'=>'3'
+            ],
+            [
+                'id'=>'TSI405',
+                'name'=>'Enterprise Architecture',
+                'sks'=>'3'
+            ],
+            [
+                'id'=>'TSI301',
+                'name'=>'Implementasi dan Integrasi Sistem Informasi',
+                'sks'=>'3'
+            ],
+            [
+                'id'=>'TSI311',
+                'name'=>'Keamanan Sistem Informasi',
+                'sks'=>'3'
+            ],
+            [
+                'id'=>'TSI401',
+                'name'=>'Komputer dan Masyarakat',
+                'sks'=>'2'
+            ],
+            [
+                'id'=>'TSI205',
+                'name'=>'Manajemen Basis Data',
+                'sks'=>'3'
+            ],
+            [
+                'id'=>'TSI307',
+                'name'=>'Manajemen Proyek SI',
+                'sks'=>'3'
+            ],
+            [
+                'id'=>'TSI415',
+                'name'=>'Pemrograman Database',
+                'sks'=>'3'
+            ],
+            [
+                'id'=>'TSI101',
+                'name'=>'Pengantar Sistem Informasi',
+                'sks'=>'3'
+            ],
+            [
+                'id'=>'TSI201',
+                'name'=>'Sistem Informasi Geografi',
+                'sks'=>'3'
+            ],
+            [
+                'id'=>'TSI419',
+                'name'=>'Spesifikasi Bahasa Pemograman',
+                'sks'=>'3'
+            ],
+            [
+                'id'=>'TSI413',
+                'name'=>'Supply Chain Management',
+                'sks'=>'3'
+            ],
         ]);
     }
 }

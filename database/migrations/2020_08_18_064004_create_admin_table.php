@@ -17,7 +17,7 @@ class CreateAdminTable extends Migration
             $table->integer('id');
             $table->foreign('id')->references('id')->on('user')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nik', 20);
-            $table->string('nip', 20);
+            $table->string('nip', 25);
             $table->string('name', 25);
             $table->enum('gender', ['male', 'female']);
             $table->timestamps();

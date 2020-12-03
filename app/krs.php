@@ -8,6 +8,10 @@ class krs extends Model
 {
     protected $table="krs";
     
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    protected $keyType = 'string';
+    
     protected $fillable =[
         'id', 'class_id', 'student_id',
     ];

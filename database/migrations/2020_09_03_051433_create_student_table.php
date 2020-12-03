@@ -17,7 +17,7 @@ class CreateStudentTable extends Migration
             $table->integer('id');
             $table->foreign('id')->references('id')->on('user')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nim', 12);
-            $table->string('name', 25);
+            $table->string('name', 30);
             $table->enum('gender', ['male', 'female']);
             $table->timestamps();
             $table->primary('id');

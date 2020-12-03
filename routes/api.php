@@ -23,12 +23,15 @@ Route::group(['prefix' => 'lecturer'], function(){
         Route::post('about', 'API\Dosen\AboutController@getAllData');
         Route::post('examclass', 'API\Dosen\ExamClassesController@getAllData');
         Route::post('examclass/{id}', 'API\Dosen\ExamClassesController@getData');
-        Route::get('presence', 'API\Dosen\presenceController@getData');
+        Route::post('presence', 'API\Dosen\presenceController@getData');
         Route::post('logout', 'API\User\LecturerController@logout');
         Route::post('isLogin', 'API\User\LecturerController@isLogin');
         Route::post('saveNews/{exam_id}', 'API\Dosen\NewsEventController@saveNews');
         Route::post('show/{id}', 'API\Dosen\NewsEventController@show');
         Route::post('delete/{id}', 'API\Dosen\NewsEventController@delete');
+        Route::post('update/{id}', 'API\Dosen\NewsEventController@update');
+        Route::post('getHistory', 'API\Dosen\presenceController@getHistory');
+
         
     });
 });
@@ -46,6 +49,8 @@ Route::group(['prefix' => 'staff'], function(){
         Route::post('saveNews/{exam_id}', 'API\Staff\NewsEventController@saveNews');
         Route::post('show/{id}', 'API\Staff\NewsEventController@show');
         Route::post('delete/{id}', 'API\Staff\NewsEventController@delete');
+        Route::post('update/{id}', 'API\Staff\NewsEventController@update');
+        Route::post('presence', 'API\Staff\presenceController@getData');
         
     });
 });

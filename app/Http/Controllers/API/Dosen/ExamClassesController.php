@@ -16,6 +16,7 @@ class ExamClassesController extends Controller
         try{
             $data=es::find($id)->classe->krses;
             // dd($data);
+            // dd($data);
             return response()->json([
                 'success'=>true,
                 'total_row'=>$data->count(),

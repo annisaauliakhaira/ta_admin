@@ -3,6 +3,7 @@
 namespace App\Http\Resources\staff;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\staff\about as aboutResource;
 
 class examschedule extends JsonResource
 {
@@ -16,21 +17,9 @@ class examschedule extends JsonResource
     {
         return[
             'exam_id'=>$this->id,
-            'class' => [
-                'id'=>$this->classe->id,
-                'name'=>$this->classe->name,
-            ],
-            'course' => [
-                'id'=>$this->classe->course->id,
-                'name'=>$this->classe->course->name,
-                'sks'=>$this->classe->course->sks,
-            ],
-            'lecturer'=>[
-                'lecturer_id'=>$this->classe->lecturer_class->lecturer->id,
-                'name'=>$this->classe->lecturer_class->lecturer->name,
-                'nip' =>$this->classe->lecturer_class->lecturer->nip
-            ],
-            'room_id'=>$this->room->id,
+            'lecturer'=>aboutResource::collection($this->classe->lecturer_class->lecturers),
+            'class_id'=>$this->class_id,
+            'class_name'=>$this->classe->name,
             'room'=>$this->room->name,
             'date'=>$this->date,
             'start_hour'=>$this->start_hour,

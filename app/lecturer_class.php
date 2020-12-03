@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class lecturer_class extends Model
 {
     protected $table = "lecturerclass";
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    protected $keyType = 'string';
     
     protected $fillable =[
         'id', 'class_id', 'lecturer_id',

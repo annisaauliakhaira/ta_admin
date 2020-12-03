@@ -14,14 +14,14 @@ class CreatePresenceTable extends Migration
     public function up()
     {
         Schema::create('presence', function (Blueprint $table) {
-            $table->string('id', 15);
-            $table->string('krs_id', 10);
+            $table->string('class_id', 10);
+            $table->integer('student_id');
             $table->string('schedule_id', 10);
             $table->integer('status');
             $table->string('code', 100);
-            $table->foreign('krs_id')->references('id')->on('krs')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign(['class_id', 'student_id'])->references(['class_id', 'student_id'])->on('krs')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('schedule_id')->references('id')->on('examschedule')->onDelete('cascade')->onUpdate('cascade');
-            $table->primary('id');
+            $table->primary(['class_id', 'student_id', 'schedule_id']);
             $table->timestamps();
         });
     }

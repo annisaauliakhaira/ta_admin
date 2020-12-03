@@ -77,8 +77,7 @@ class NewsEventController extends Controller
             'data'=> $event
         ], 201);
     }
-    public function delete($id)
-    {
+    public function delete($id){
         $event=newsevent::find($id);
         $event->delete();
         return response()->json([

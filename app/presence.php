@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class presence extends Model
 {
     protected $table="presence";
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     protected $fillable = [
         'id', 'status', 'news_event', 'krs_id', 'schedule_id',
