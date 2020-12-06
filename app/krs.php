@@ -16,27 +16,27 @@ class krs extends Model
         'id', 'class_id', 'student_id',
     ];
 
-    public function classes(Type $var = null)
+    public function classes()
     {
         return $this->hasmany(classes::class, 'id', 'class_id');
     }
 
-    public function classe(Type $var = null)
+    public function classe()
     {
         return $this->hasone(classes::class, 'id', 'class_id');
     }
 
-    public function students(Type $var = null)
+    public function students()
     {
         return $this->hasmany(student::class, 'id', 'student_id');
     }
 
-    public function student(Type $var = null)
+    public function student()
     {
         return $this->hasone(student::class, 'id', 'student_id');
     }
 
-    public function presence(Type $var = null)
+    public function presence()
     {
         return $this->hasone(presence::class, 'krs_id', 'id');
     }

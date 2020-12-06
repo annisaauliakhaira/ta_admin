@@ -9,13 +9,14 @@ class examclasses extends JsonResource
 
     public function toArray($request)
     {
-        $presence = $this->classe->exam_schedule->presenceKrs($this->id)->first();
+        $presence = $this->presence;
         return[
-            'exam_id'=>$this->id,
+            'id'=>$presence->id,
+            'exam_id'=>$presence->schedule_id,
             'name'=>$this->student->name,
             'nim'=>$this->student->nim,
-            'presence_status' => $presence? $presence->status : '',
-            'presence_code' => $presence? $presence->code : '',
+            'presence_status' => $presence->status,
+            'presence_code' => $presence->code,
         ];
     }
 }

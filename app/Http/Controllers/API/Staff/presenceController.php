@@ -21,7 +21,28 @@ class presenceController extends Controller
             ]);
 
         }
-        catch(Exception $e){
+        catch(\Exception $e){
+            return response()->json([
+                'success' => false,
+                'description' => 'Gagal Mengambil Data',
+                'errors'    => $e->getMessage(),
+              ], 405);
+        }
+    }
+
+    public function updateManual($id, $presence_status)
+    {
+        try{
+            $data = presence::find($id);
+            $data->status=$presence_status;
+            $data->update();
+            return response()->json([
+                'success'=>true,
+                'data'=>new presence_($data) 
+            ]);
+
+        }
+        catch(\Exception $e){
             return response()->json([
                 'success' => false,
                 'description' => 'Gagal Mengambil Data',

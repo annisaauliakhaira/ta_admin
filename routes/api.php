@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['prefix' => 'lecturer'], function(){
     Route::post('login', 'API\User\LecturerController@login');
+    Route::post('isLogin', 'API\User\LecturerController@isLogin');
 
     Route::group(['middleware' => 'auth:api'], function(){
         Route::post('details', 'API\User\LecturerController@details');
@@ -24,8 +25,8 @@ Route::group(['prefix' => 'lecturer'], function(){
         Route::post('examclass', 'API\Dosen\ExamClassesController@getAllData');
         Route::post('examclass/{id}', 'API\Dosen\ExamClassesController@getData');
         Route::post('presence', 'API\Dosen\presenceController@getData');
+        Route::post('updateManual/{id}/{presence_status}', 'API\Dosen\presenceController@updateManual');
         Route::post('logout', 'API\User\LecturerController@logout');
-        Route::post('isLogin', 'API\User\LecturerController@isLogin');
         Route::post('saveNews/{exam_id}', 'API\Dosen\NewsEventController@saveNews');
         Route::post('show/{id}', 'API\Dosen\NewsEventController@show');
         Route::post('delete/{id}', 'API\Dosen\NewsEventController@delete');
@@ -38,6 +39,7 @@ Route::group(['prefix' => 'lecturer'], function(){
 
 Route::group(['prefix' => 'staff'], function(){
     Route::post('login', 'API\User\StaffController@login');
+    Route::post('isLogin', 'API\User\StaffController@isLogin');
 
     Route::group(['middleware' => 'auth:api'], function(){
         Route::post('details', 'API\User\StaffController@details');
@@ -45,25 +47,25 @@ Route::group(['prefix' => 'staff'], function(){
         Route::post('about', 'API\Staff\AboutController@getAllData');
         Route::post('examclass/{id}', 'API\Staff\ExamClassesController@getData');
         Route::post('logout', 'API\User\StaffController@logout');
-        Route::post('isLogin', 'API\User\StaffController@isLogin');
         Route::post('saveNews/{exam_id}', 'API\Staff\NewsEventController@saveNews');
         Route::post('show/{id}', 'API\Staff\NewsEventController@show');
         Route::post('delete/{id}', 'API\Staff\NewsEventController@delete');
         Route::post('update/{id}', 'API\Staff\NewsEventController@update');
         Route::post('presence', 'API\Staff\presenceController@getData');
+        Route::post('updateManual/{id}/{presence_status}', 'API\Staff\presenceController@updateManual');
         
     });
 });
 
 Route::group(['prefix' => 'student'], function(){
     Route::post('login', 'API\User\StudentController@login');
+    Route::post('isLogin', 'API\User\StudentController@isLogin');
 
     Route::group(['middleware' => 'auth:api'], function(){
         Route::post('details', 'API\User\StudentController@details');
         Route::post('examschedule','API\Student\ExamScheduleController@getAllData');
         Route::post('about','API\Student\AboutController@getAllData');
         Route::post('logout', 'API\User\StudentController@logout');
-        Route::post('isLogin', 'API\User\StudentController@isLogin');
     });
 });
 

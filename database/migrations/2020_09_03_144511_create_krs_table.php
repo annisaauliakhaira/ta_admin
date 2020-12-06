@@ -14,11 +14,13 @@ class CreateKrsTable extends Migration
     public function up()
     {
         Schema::create('krs', function (Blueprint $table) {
+            $table->string('id', 10);
             $table->string('class_id', 10);
             $table->integer('student_id');
             $table->foreign('class_id')->references('id')->on('classes')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('student_id')->references('id')->on('student')->onDelete('cascade')->onUpdate('cascade');
-            $table->primary(['class_id', 'student_id']);
+            $table->primary('id');
+            $table->unique(['class_id', 'student_id']);
             $table->timestamps();
         });
     }

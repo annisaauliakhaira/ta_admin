@@ -85,11 +85,20 @@ class LecturerController extends Controller
             try{
                 $user = Auth::user();
                 if($user){
-                    return $this->MessageSuccess(['isLogin'=>true], 200);
+                    return response()->json([
+                        'success' => true,
+                        'message' =>['isLogin'=>true]
+                    ], $this->successStatus);
                 }
-                return $this->MessageError(['isLogin'=>false], 401);
-            }catch(\Exception $th){
-                return $th->MessageError(['isLogin'=>false], 401);
+                return response()->json([
+                    'success' => true,
+                    'message' =>['isLogin'=>false]
+                ],401);
+            }catch(\Exception $e){
+                return response()->json([
+                    'success' => true,
+                    'message' =>['isLogin'=>false]
+                ], 401);
             }
         }
 }
