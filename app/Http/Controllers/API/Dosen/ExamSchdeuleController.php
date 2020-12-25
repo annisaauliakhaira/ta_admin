@@ -14,7 +14,7 @@ class ExamSchdeuleController extends Controller
     {
         try{
             $data=exam_schedule::select('examschedule.*')->join('lecturerclass','examschedule.class_id','=','lecturerclass.class_id')
-                                                        ->where('lecturerclass.lecturer_id',Auth::user()->id)->distinct()->get(); 
+                                                        ->where('lecturerclass.lecturer_id',Auth::user()->id)->where('examtype_id', $request->examtype_id)->distinct()->get(); 
             return response()->json([
                 'success'=>true,
                 'total_row'=>$data->count(),
@@ -23,7 +23,7 @@ class ExamSchdeuleController extends Controller
 
         }
 
-        catch(Exception $e){
+        catch(\Exception $e){
             return response()->json([
                 'success' => false,
                 'description' => 'Gagal Mengambil Data',
@@ -31,4 +31,5 @@ class ExamSchdeuleController extends Controller
               ], 405);
         }
     }
+
 }

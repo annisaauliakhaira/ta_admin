@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class presenceController extends Controller
 {
-    public function getData(Request $request)
+    public function getData(Request $request) 
     {
         try{
             $data = presence::where('code', $request->code)->first();
@@ -30,10 +30,10 @@ class presenceController extends Controller
         }
     }
 
-    public function updateManual($id, $presence_status)
+    public function updateManual($code, $presence_status)
     {
         try{
-            $data = presence::find($id);
+            $data = presence::where('code', $code)->first();
             $data->status=$presence_status;
             $data->update();
             return response()->json([

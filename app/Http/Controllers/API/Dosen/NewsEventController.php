@@ -13,7 +13,6 @@ class NewsEventController extends Controller
 {
     public function saveNews($exam_id, Request $request)
     {
-    
         $validator = Validator::make($request->all(), [
             'news_event' => 'required',
             

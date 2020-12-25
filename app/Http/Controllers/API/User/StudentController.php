@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\user\student;
 use App\Http\Resources\user\user;
 use App\student as AppStudent;
-use Validator;
+use Illuminate\Support\Facades\{Hash, Validator};
 
 class StudentController extends Controller
 {
@@ -83,7 +83,7 @@ class StudentController extends Controller
         public function isLogin()
         {
             try{
-                $user = Auth::user();
+                $user = app('auth')->user();
                 if($user){
                     return response()->json([
                         'success' => true,
@@ -92,12 +92,55 @@ class StudentController extends Controller
                 }
                 return response()->json([
                     'success' => true,
-                    'message' =>['isLogin'=>false]
+                    'message' =>['isLogin'=>false] 
                 ],401);
             }catch(\Exception $e){
                 return response()->json([
                     'success' => true,
                     'message' =>['isLogin'=>false]
+                ], 401);
+            }
+        }
+
+        public function changePassword(Request $request){
+            $validator = Validator::make($request->all(), [
+                'old_password'          => 'required',
+                'new_password'          => 'required',
+                'confirm_password'      => 'required|same:new_password',
+            ]);
+
+            if($validator->fails()){
+                return response()->json([
+                    'success' => false,
+                    'message' =>$validator->errors()
+                ],403);
+            }
+
+            try {
+                $user = Auth::user();    
+                $password = $request->old_password;
+                if($user){
+                    $userPass = $user->password;
+                    if(Hash::check($password, $userPass)){
+                        $user->password = Hash::make($request->new_password); 
+                        $user->update();
+                        Auth::user()->AauthAcessToken()->delete();
+                        return response()->json([
+                            'success' => true,
+                            'message' =>['changePassword'=>true]
+                        ], $this->successStatus);
+                    }else{
+                        $validator->errors()->add('old_password','Password not same with old Password');
+                        return response()->json([
+                            'success' => false,
+                            'message' => $validator->errors()
+                        ], 401);
+                    }
+                }
+            } catch (\Exception $th) {
+                return response()->json([
+                    'success' => true,
+                    'message' =>['changePassword'=>false]
                 ], 401);
             }
         }

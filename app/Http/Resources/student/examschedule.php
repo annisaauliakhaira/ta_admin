@@ -16,22 +16,23 @@ class examschedule extends JsonResource
      */
     public function toArray($request)
     {
-        $krs = $this->classe->krs(Auth::user()->id)->first();
-        $presence = $this->classe->exam_schedule->presenceKrs($krs->id)->first();
+        
         return[
-            'exam_id'=>$this->id,
-            'krs_id'=>$krs->id,
+            'exam_id'=>$this->schedule->id,
             'classes'=>[
-                'class_id'=>$this->classe->id,
-                'class_name'=>$this->classe->name
+                'class_id'=>$this->schedule->classe->name,
+                'class_name'=>$this->schedule->classe->course->name
             ],
-            'date'=>$this->date,
-            'start_hour'=>$this->start_hour,
-            'ending_hour'=>$this->ending_hour,
-            'room'=>$this->room->name,
-            'presence_status' => $presence? $presence->status : '',
-            'presence_code' => $presence? $presence->code : '',
-            'lecturer'=>aboutResource::collection($this->classe->lecturer_class->lecturers),
+            'date'=>$this->schedule->date,
+            'start_hour'=>$this->schedule->start_hour,
+            'ending_hour'=>$this->schedule->ending_hour,
+            'room'=>$this->schedule->room->name,
+            'room_id'=>$this->schedule->room->id,
+            'latitude'=>$this->schedule->room->latitude,
+            'longitude'=>$this->schedule->room->longitude,
+            'presence_status' => $this->status,
+            'presence_code' => $this->code,
+            'lecturer'=>aboutResource::collection($this->schedule->classe->lecturer_class->lecturers),
 
         ];
     }

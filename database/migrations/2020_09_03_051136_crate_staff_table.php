@@ -14,12 +14,9 @@ class CrateStaffTable extends Migration
     public function up()
     {
         Schema::create('staff', function (Blueprint $table) {
-            $table->integer('id');
+            $table->integer('id')->unsigned();
             $table->foreign('id')->references('id')->on('user')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('nik', 20);
-            $table->string('nip', 25);
-            $table->string('name', 30);
-            $table->enum('gender', ['male', 'female']);
+            $table->string('name', 50);
             $table->timestamps();
             $table->primary('id');
         });

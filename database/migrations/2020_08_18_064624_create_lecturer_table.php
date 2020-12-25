@@ -14,23 +14,17 @@ class CreateLecturerTable extends Migration
     public function up()
     {
         Schema::create('lecturer', function (Blueprint $table) {
-            $table->integer('id');
+            $table->integer('id')->unsigned();
             $table->foreign('id')->references('id')->on('user')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('nik', 20);
             $table->string('nip', 25);
-            $table->string('name', 30);
-            $table->text('address');
-            $table->enum('gender', ['male', 'female']);
+            $table->string('name', 50);
+            $table->text('address')->nullable();
             $table->timestamps();
             $table->primary('id');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+   
     public function down()
     {
         Schema::dropIfExists('lecturer');

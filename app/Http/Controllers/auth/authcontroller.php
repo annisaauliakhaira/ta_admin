@@ -11,6 +11,7 @@ class authcontroller extends Controller
 {
     public function getlogin(Type $var = null)
     {
+        dd(1);
         return view('auth.login');
     }
 

@@ -21,22 +21,18 @@ class CreateExamscheduleTable extends Migration
             $table->integer('status');
             $table->string('room_id', 5);
             $table->string('class_id', 10);
-            $table->integer('staff_id');
+            $table->integer('staff_id')->unsigned();
             $table->integer('examtype_id');
             $table->foreign('room_id')->references('id')->on('room')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('class_id')->references('id')->on('classes')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('examtype_id')->references('id')->on('examtype')->onDelete('cascade')->onUpdate('cascade');
             $table->primary('id');
+            $table->unique(['class_id', 'examtype_id']);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('examschedule');

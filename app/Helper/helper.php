@@ -13,7 +13,7 @@ class helper{
             return json_decode($data);
 
         }catch(\Exception $e){
-            return false;
+            return $e->getMessage();
         }
     }
 }

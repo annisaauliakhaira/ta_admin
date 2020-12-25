@@ -8,6 +8,10 @@ class staff extends Model
 {
     protected $table="staff";
     
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    protected $keyType = 'string';
+    
     protected $fillable = [
         'id', 'nik', 'nip',  'name', 'gender',
     ];

@@ -15,7 +15,7 @@ class CreateBuildingTable extends Migration
     {
         Schema::create('building', function (Blueprint $table) {
             $table->string('id',5);
-            $table->string('name', 15);
+            $table->string('name', 50);
             $table->primary('id');
             $table->timestamps();
         });

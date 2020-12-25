@@ -16,7 +16,7 @@ class CreateLecturerclassTable extends Migration
         Schema::create('lecturerclass', function (Blueprint $table) {
             $table->string('id', 10);
             $table->string('class_id', 10);
-            $table->integer('lecturer_id');
+            $table->integer('lecturer_id')->unsigned();
             $table->foreign('class_id')->references('id')->on('classes')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('lecturer_id')->references('id')->on('lecturer')->onDelete('cascade')->onUpdate('cascade');
             $table->primary('id');

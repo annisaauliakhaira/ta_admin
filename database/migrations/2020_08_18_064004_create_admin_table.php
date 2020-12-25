@@ -14,7 +14,7 @@ class CreateAdminTable extends Migration
     public function up()
     {
         Schema::create('admin', function (Blueprint $table) {
-            $table->integer('id');
+            $table->integer('id')->unsigned();
             $table->foreign('id')->references('id')->on('user')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nik', 20);
             $table->string('nip', 25);
@@ -25,11 +25,6 @@ class CreateAdminTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('admin');

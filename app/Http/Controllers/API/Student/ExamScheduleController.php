@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\exam_schedule;
+use App\presence;
 use App\Http\Resources\student\examschedule as examscheduleResource;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,15 +13,15 @@ class ExamScheduleController extends Controller
     public function getAllData(Request $request)
     {
         try{
-            $data=exam_schedule::select('examschedule.*')->join('krs','examschedule.class_id','=','krs.class_id')
-                                                        ->where('student_id',Auth::user()->id)->distinct()->get();
+            $student_id=app('auth')->user()->id;
+            $data=presence::select('presence.*')->where('student_id','=', $student_id)->get();
             return response()->json([
                 'succes'=>true,
                 'total_row'=>$data->count(),
                 'data'=>examscheduleResource::collection($data)
             ]);
         }
-        catch(Exception $e){
+        catch(\Exception $e){
             return response()->json([
                 'success' => false,
                 'description' => 'Gagal Mengambil Data',

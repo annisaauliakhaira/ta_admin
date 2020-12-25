@@ -8,12 +8,15 @@ class lecturer extends Model
 {
 
     protected $table = "lecturer";
+    protected $primaryKey = 'id';
+    // public $incrementing = false;
+    // protected $keyType = 'string';
 
     protected $fillable = [
-        'id', 'nik', 'nip',  'name', 'address', 'gender',
+        'id', 'nip',  'name', 'address'
     ];
 
-    public function user(Type $var = null)
+    public function user()
     {
         return $this->hasone(user::class, 'id', 'id');
     }

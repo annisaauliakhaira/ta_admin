@@ -14,11 +14,10 @@ class CreateStudentTable extends Migration
     public function up()
     {
         Schema::create('student', function (Blueprint $table) {
-            $table->integer('id');
+            $table->integer('id')->unsigned();
             $table->foreign('id')->references('id')->on('user')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nim', 12);
-            $table->string('name', 30);
-            $table->enum('gender', ['male', 'female']);
+            $table->string('name', 50);
             $table->timestamps();
             $table->primary('id');
         });

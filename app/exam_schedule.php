@@ -45,7 +45,7 @@ class exam_schedule extends Model
         return $this->hasmany(staff::class, 'id', 'staff_id');
     }
 
-    public function staff()
+    public function staff() 
     {
         return $this->hasone(staff::class, 'id', 'staff_id');
     }
@@ -66,6 +66,6 @@ class exam_schedule extends Model
 
     public function presenceKrs($id=null)
     {
-        return $this->hasone(presence::class, 'schedule_id', 'id')->where('krs_id',$id);
+        return $this->hasMany(presence::class, 'schedule_id', 'id')->where('krs_id',$id);
     }
 }

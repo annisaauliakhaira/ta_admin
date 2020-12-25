@@ -12,9 +12,12 @@ class User extends Authenticatable
     use HasApiTokens, Notifiable;
 
     protected $table = "user";
+    protected $primaryKey = 'id';
+    // public $incrementing = false;
+    // protected $keyType = 'string';
 
     protected $fillable = [
-        'id', 'username', 'password', 'email', 'status'
+        'id', 'username', 'password', 'status'
     ];
 
     

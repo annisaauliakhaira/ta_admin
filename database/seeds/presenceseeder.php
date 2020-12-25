@@ -9,142 +9,142 @@ class presenceseeder extends Seeder
     {
         DB::table('presence')->insert([
             [
-                'id'=>'P1',
-                'krs_id'=>'AA1',
-                'schedule_id'=>'A11',
+                'class_id'=>'TSI203-01',
+                'student_id'=>'24',
+                'examtype_id'=>'2',
                 'status'=>0,
                 'code'=>'abcd12'
             ],
             [
-                'id'=>'P2',
-                'krs_id'=>'BB1',
-                'schedule_id'=>'A12',
+                'class_id'=>'TSI203-02',
+                'student_id'=>'25',
+                'examtype_id'=>'2',
                 'status'=>0,
                 'code'=>'abcd123'
             ],
             [
-                'id'=>'P3',
-                'krs_id'=>'CC1',
-                'schedule_id'=>'B23',
+                'class_id'=>'TSI309-01',
+                'student_id'=>'14',
+                'examtype_id'=>'2',
                 'status'=>0,
                 'code'=>'abcd1234'
             ],
             [
-                'id'=>'P4',
-                'krs_id'=>'DD1',
-                'schedule_id'=>'B24',
+                'class_id'=>'TSI309-02',
+                'student_id'=>'15',
+                'examtype_id'=>'2',
                 'status'=>0,
                 'code'=>'abcd12345'
             ],
             [
-                'id'=>'P5',
-                'krs_id'=>'AA2',
-                'schedule_id'=>'A11',
+                'class_id'=>'TSI203-01',
+                'student_id'=>'26',
+                'examtype_id'=>'2',
                 'status'=>0,
                 'code'=>'abcd123456'
             ],
             [
-                'id'=>'P6',
-                'krs_id'=>'AA3',
-                'schedule_id'=>'A11',
+                'class_id'=>'TSI203-01',
+                'student_id'=>'28',
+                'examtype_id'=>'2',
                 'status'=>0,
                 'code'=>'abcd1234567'
             ],
             [
-                'id'=>'P7',
-                'krs_id'=>'AA4',
-                'schedule_id'=>'A11',
+                'class_id'=>'TSI203-01',
+                'student_id'=>'30',
+                'examtype_id'=>'2',
                 'status'=>0,
                 'code'=>'abcd12345678'
             ],
             [
-                'id'=>'P8',
-                'krs_id'=>'AA5',
-                'schedule_id'=>'A11',
+                'class_id'=>'TSI203-01',
+                'student_id'=>'32',
+                'examtype_id'=>'2',
                 'status'=>0,
                 'code'=>'abcd123456789'
             ],
             [
-                'id'=>'P9',
-                'krs_id'=>'BB2',
-                'schedule_id'=>'A12',
+                'class_id'=>'TSI203-02',
+                'student_id'=>'27',
+                'examtype_id'=>'2',
                 'status'=>0,
                 'code'=>'abcd12345678910'
             ],
             [
-                'id'=>'P10',
-                'krs_id'=>'BB3',
-                'schedule_id'=>'A12',
+                'class_id'=>'TSI203-02',
+                'student_id'=>'29',
+                'exam_type'=>'2',
                 'status'=>0,
                 'code'=>'abc12'
             ],
             [
-                'id'=>'P11',
-                'krs_id'=>'BB4',
-                'schedule_id'=>'A12',
+                'class_id'=>'TSI203-02',
+                'student_id'=>'31',
+                'exam_type'=>'2',
                 'status'=>0,
                 'code'=>'abc123'
             ],
             [
-                'id'=>'P12',
-                'krs_id'=>'BB5',
-                'schedule_id'=>'A12',
+                'class_id'=>'TSI203-02',
+                'student_id'=>'33',
+                'exam_type'=>'2',
                 'status'=>0,
                 'code'=>'abc1234'
             ],
             [
-                'id'=>'P13',
-                'krs_id'=>'CC2',
-                'schedule_id'=>'B23',
+                'class_id'=>'TSI309-01',
+                'student_id'=>'16',
+                'exam_type'=>'2',
                 'status'=>0,
                 'code'=>'abc12345'
             ],
             [
-                'id'=>'P14',
-                'krs_id'=>'CC3',
-                'schedule_id'=>'B23',
+                'class_id'=>'TSI309-01',
+                'student_id'=>'18',
+                'exam_type'=>'2',
                 'status'=>0,
                 'code'=>'abc123456'
             ],
             [
-                'id'=>'P15',
-                'krs_id'=>'CC4',
-                'schedule_id'=>'B23',
+                'class_id'=>'TSI309-01',
+                'student_id'=>'20',
+                'exam_type'=>'2',
                 'status'=>0,
                 'code'=>'abc1234567'
             ],
             [
-                'id'=>'P16',
-                'krs_id'=>'CC5',
-                'schedule_id'=>'B23',
+                'class_id'=>'TSI309-01',
+                'student_id'=>'22',
+                'exam_type'=>'2',
                 'status'=>0,
                 'code'=>'abc12345678'
             ],
             [
-                'id'=>'P17',
-                'krs_id'=>'DD2',
-                'schedule_id'=>'B24',
+                'class_id'=>'TSI309-02',
+                'student_id'=>'17',
+                'exam_type'=>'2',
                 'status'=>0,
                 'code'=>'abc123456789'
             ],
             [
-                'id'=>'P18',
-                'krs_id'=>'DD3',
-                'schedule_id'=>'B24',
+                'class_id'=>'TSI309-02',
+                'student_id'=>'19',
+                'exam_type'=>'2',
                 'status'=>0,
                 'code'=>'abc12345678910'
             ],
             [
-                'id'=>'P19',
-                'krs_id'=>'DD4',
-                'schedule_id'=>'B24',
+                'class_id'=>'TSI309-02',
+                'student_id'=>'21',
+                'exam_type'=>'2',
                 'status'=>0,
                 'code'=>'ab12'
             ],
             [
-                'id'=>'P20',
-                'krs_id'=>'DD5',
-                'schedule_id'=>'B24',
+                'class_id'=>'TSI309-02',
+                'student_id'=>'23',
+                'exam_type'=>'2',
                 'status'=>0,
                 'code'=>'ab123'
             ],

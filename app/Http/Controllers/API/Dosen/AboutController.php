@@ -14,11 +14,10 @@ class AboutController extends Controller
     public function getAllData(Request $request)
     {
         try{
-            $data=lecturer::select('lecturer.*')->get();
+            $data=Auth::user()->lecturer;
             return response()->json([
                 'success'=>true,
-                'total_row'=>$data->count(),
-                'data'=>aboutResource::collection($data)
+                'data'=>new aboutResource($data)
             ], 202);
         }
 
