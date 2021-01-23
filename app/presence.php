@@ -13,7 +13,7 @@ class presence extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'class_id','student_id', 'examtype_id', 'status', 'code'
+        'class_id','student_id', 'examtype_id', 'status', 'code','presence_time_start', 'presence_time_end'
     ];
 
     protected function setKeysForSaveQuery(Builder $query)

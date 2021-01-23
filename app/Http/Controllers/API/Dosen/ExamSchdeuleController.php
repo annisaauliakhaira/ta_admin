@@ -32,4 +32,30 @@ class ExamSchdeuleController extends Controller
         }
     }
 
+    public function changeStatus($id)
+    {
+        try {
+            $data = exam_schedule::find($id);
+            if($data->status==0){
+                $data->status = 1;
+                $data->waktu_masuk = now();
+                $data->update();
+                return response()->json([
+                    'success'=>true,
+                    'data'=>"Berhasil Merubah Data"
+                ]);
+            }
+            return response()->json([
+                'success'=>false,
+                'data'=>"Sudah Masuk ke Area"
+            ],405);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'description' => 'Gagal Merubah Data',
+                'errors'    => $e->getMessage(),
+            ], 405);
+        }
+    }
+
 }

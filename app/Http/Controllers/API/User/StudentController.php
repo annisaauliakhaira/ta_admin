@@ -124,7 +124,6 @@ class StudentController extends Controller
                     if(Hash::check($password, $userPass)){
                         $user->password = Hash::make($request->new_password); 
                         $user->update();
-                        Auth::user()->AauthAcessToken()->delete();
                         return response()->json([
                             'success' => true,
                             'message' =>['changePassword'=>true]

@@ -19,6 +19,7 @@ class CreateExamscheduleTable extends Migration
             $table->time('ending_hour');
             $table->date('date');
             $table->integer('status');
+            $table->timestamp('waktu_masuk')->nullable();
             $table->string('room_id', 5);
             $table->string('class_id', 10);
             $table->integer('staff_id')->unsigned();

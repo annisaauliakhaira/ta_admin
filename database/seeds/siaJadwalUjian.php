@@ -3,13 +3,43 @@
 use Illuminate\Database\Seeder;
 use App\Helper\helper;
 use App\{exam_schedule, classes};
+use App\{user, staff};
 
 class siaJadwalUjian extends Seeder
 {
     public function run()
     {
+        $idStaff = [];
+
+        $datas = [
+            [
+                'username' => 'nindy',
+                'name' => 'Nindy Melisa'
+            ],
+            [
+                'username' => 'kalid',
+                'name' => 'Khalid'
+            ],
+            
+        ];
+        foreach ($datas as $data) {
+            $user=  user::create([
+                // 'id' => Str::random(11),
+                'username' => $data['username'],
+                'status'=>4,
+                'password'=>app('hash')->make('staff123'),
+                // 'email'=>$data->username.'@unand.ac.id'
+            ]);
+
+            $idStaff []=$user->id;
+
+            staff::create([
+                'id'=>$user->id,
+                'name' => $data['name']
+            ]);
+        }
+
         $data = helper::get("v1/kelas-ujian");
-        $idStaff = [637, 632, 638, 648, 649, 650];
         if($data){
             $datas = $data->data;
             foreach ($datas as $data) {

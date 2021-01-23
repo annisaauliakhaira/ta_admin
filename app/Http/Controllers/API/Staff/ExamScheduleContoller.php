@@ -10,18 +10,18 @@ use Illuminate\Support\Facades\Auth;
 
 class ExamScheduleContoller extends Controller
 {
-    public function getAllData(Request $request)
+    public function getAllData(Request $request) 
     {
         try{
             $data=exam_schedule::select('examschedule.*')->join('staff','examschedule.staff_id','=','staff.id')
-                                                        ->where('staff_id',Auth::user()->id)->distinct()->get();
+                                                        ->where('staff_id',Auth::user()->id)->where('examtype_id', $request->examtype_id)->distinct()->get();
             return response()->json([
                 'success'=>true,
                 'total_row'=>$data->count(),
                 'data'=>examscheduleResource::collection($data)
             ]);
         }
-        catch(Exception $e){
+        catch(\Exception $e){
             return response()->json([
                 'success' => false,
                 'description' => 'Gagal Mengambil Data',

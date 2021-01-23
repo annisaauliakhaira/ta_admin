@@ -12,7 +12,7 @@ class student extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'id', 'nip',  'name', 'gender',
+        'id', 'nim',  'name', 'gender',
     ];
 
     public function user(Type $var = null)

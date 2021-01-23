@@ -12,7 +12,7 @@ class about extends JsonResource
         return[
             'id'=>$this->id,
             'name'=>$this->name,
-            'nip'=>$this->nip,
+            'nip'=>$this->nip, 
         ];
     }
 }

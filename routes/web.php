@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/login', 'auth\authcontroller@getlogin');
 Route::post('/login', 'auth\authcontroller@postlogin');
 Route::get('/dashboard', 'homecontroller@dashboard');
+
+Route::get('/printDaftarHadir/{id}', 'API\Dosen\PrintController@printDaftarHadir');
+Route::get('/printBerita/{id}', 'API\Dosen\PrintController@cetakBerita');

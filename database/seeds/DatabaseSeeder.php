@@ -20,17 +20,19 @@ class DatabaseSeeder extends Seeder
         // $this->call(presenceseeder::class);
         // $this->call(newseventseeder::class);
 
-        $this->call(siaMahasiswa::class);
-        $this->call(siaDosen::class);
-        $this->call(siaStaff::class);
-        $this->call(siaPeriod::class);
-        $this->call(siaGedung::class);
-        $this->call(siaRuangan::class);
-        $this->call(siaCourses::class);
-        $this->call(siaClass::class);      
-        $this->call(siaLecturerClass::class);   
-        $this->call(siaKrs::class);  
-        $this->call(examtypeseeder::class);     
+        
+        // $this->call(siaStaff::class);
+
+        // $this->call(siaMahasiswa::class);
+        // $this->call(siaDosen::class);
+        // $this->call(siaPeriod::class);
+        // $this->call(siaGedung::class);
+        // $this->call(siaRuangan::class);
+        // $this->call(siaCourses::class);
+        // $this->call(siaClass::class);      
+        // $this->call(siaLecturerClass::class);   
+        // $this->call(siaKrs::class);  
+        // $this->call(examtypeseeder::class);     
         $this->call(siaJadwalUjian::class);     
         $this->call(siaPresence::class);     
         

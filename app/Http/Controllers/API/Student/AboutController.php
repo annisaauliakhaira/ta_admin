@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\student;
 use App\user;
 use App\Http\Resources\student\about as aboutResource;
+use Illuminate\Support\Facades\Auth;
 
 
 class AboutController extends Controller
@@ -14,7 +15,7 @@ class AboutController extends Controller
     public function getAllData(Request $request)
     {
         try{
-            $data=student::all();
+            $data=Auth::user()->student;
             return response()->json([
                 'succes'=>true,
                 'total_row'=>$data->count(),

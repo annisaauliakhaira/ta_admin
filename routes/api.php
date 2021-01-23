@@ -4,16 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+
 Route::group(['prefix' => 'lecturer'], function(){
     Route::post('login', 'API\User\LecturerController@login');
 
@@ -21,7 +12,9 @@ Route::group(['prefix' => 'lecturer'], function(){
         Route::post('isLogin', 'API\User\LecturerController@isLogin');
         Route::post('changePassword', 'API\User\LecturerController@changePassword');
         Route::post('details', 'API\User\LecturerController@details');
+        
         Route::post('examschedule', 'API\Dosen\ExamSchdeuleController@getAllData');
+        Route::post('examschedule/{id}', 'API\Dosen\ExamSchdeuleController@changeStatus');
         Route::post('about', 'API\Dosen\AboutController@getAllData');
         Route::post('examclass', 'API\Dosen\ExamClassesController@getAllData');
         Route::post('examclass/{id}', 'API\Dosen\ExamClassesController@getData');
@@ -33,8 +26,9 @@ Route::group(['prefix' => 'lecturer'], function(){
         Route::post('delete/{id}', 'API\Dosen\NewsEventController@delete');
         Route::post('update/{id}', 'API\Dosen\NewsEventController@update');
         Route::post('getHistory', 'API\Dosen\presenceController@getHistory');
-        Route::post('saveLatLong/{id}', 'API\Dosen\geofenceController@saveLatLong');
+        Route::post('PresenceHistory/{id}', 'API\Dosen\ExamHistoryController@PresenceHistory');
 
+        Route::get('/print/{id}', 'API\Dosen\PrintController@cetak');
         
     });
 });
@@ -69,6 +63,8 @@ Route::group(['prefix' => 'student'], function(){
         Route::post('isLogin', 'API\User\StudentController@isLogin');
         Route::post('details', 'API\User\StudentController@details');
         Route::post('examschedule','API\Student\ExamScheduleController@getAllData');
+        Route::post('examhistory','API\Student\ExamHistoryController@getHistory');
+        Route::post('waktuMasukPresence','API\Student\presenceController@updateWaktu');
         Route::post('about','API\Student\AboutController@getAllData');
         Route::post('logout', 'API\User\StudentController@logout');
     });

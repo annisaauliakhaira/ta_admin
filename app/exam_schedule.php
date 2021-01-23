@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class exam_schedule extends Model
 {
     protected $table = "examschedule";
+    protected $dates = [
+        'start_hour',
+        'ending_hour',
+        'waktu_masuk'
+    ];
 
     
     protected $primaryKey = 'id'; // or null
@@ -17,7 +22,7 @@ class exam_schedule extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'id', 'start_hour', 'ending_hour', 'date', 'status', 'room_id', 'class_id', 'staff_id', 'examtype_id', 
+        'id', 'start_hour', 'ending_hour', 'date', 'status', 'room_id', 'class_id', 'staff_id', 'examtype_id', 'waktu_masuk'
     ];
 
     public function rooms()
@@ -64,8 +69,9 @@ class exam_schedule extends Model
         return $this->hasMany(newsevent::class, 'exam_id', 'id');
     }
 
-    public function presenceKrs($id=null)
+    public function presence($id=null)
     {
-        return $this->hasMany(presence::class, 'schedule_id', 'id')->where('krs_id',$id);
+        $examtype_id = $this->examtype_id;
+        return $this->hasMany(presence::class, 'class_id', 'class_id')->where('examtype_id',$examtype_id);
     }
 }

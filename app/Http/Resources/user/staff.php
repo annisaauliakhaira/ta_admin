@@ -11,8 +11,8 @@ class staff extends JsonResource
     {
         return[
             'id'=>$this->id,
-            'username'=>$this->username,
             'name'=>$this->name,
+            'username'=>$this->user->username,
         ];
     }
 }
