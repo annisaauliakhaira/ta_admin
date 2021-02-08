@@ -35,6 +35,5 @@ class ExamClassesController extends Controller
             ], 405);
         }
     }
-
-    
+   
 }

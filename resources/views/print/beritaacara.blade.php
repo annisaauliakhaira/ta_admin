@@ -3,6 +3,14 @@
        <title>BERITA ACARA UJIAN</title>
        <link href="http://portal.unand.ac.id/css/a-portal-print.css" rel="stylesheet" type="text/css" title="Default" />
        <link href="http://portal.unand.ac.id/css/a-portal-media-print.css" rel="stylesheet" type="text/css" title="Default" />
+       <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
     </head>
     <body>
           <div class="page">
@@ -113,6 +121,9 @@
                         <tr><td>--------------------------------------</td></tr>
                         <tr><td>NIP: .................................</td></tr>
                     </table>
+                    <div class="footer">
+                        <p>Sistem Informasi Presensi Ujian/{{ auth('api')->user() ? auth('api')->user()->lecturer->name : "null" }}/{{ date('Y-m-d') }}</p>
+                    </div>
             </div>
           </div>
     </body>

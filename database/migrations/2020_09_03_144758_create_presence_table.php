@@ -15,7 +15,7 @@ class CreatePresenceTable extends Migration
             $table->integer('examtype_id');
             $table->integer('status');
             $table->string('code', 100);
-            $table->timestamp('presence_time_start')->nullable();
+            $table->timestamp('presence_time_start')->nullable(); 
             $table->timestamp('presence_time_end')->nullable();
             $table->foreign(['class_id', 'student_id'])->references(['class_id', 'student_id'])->on('krs')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign(['class_id', 'examtype_id'])->references(['class_id', 'examtype_id'])->on('examschedule')->onDelete('cascade')->onUpdate('cascade');

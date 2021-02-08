@@ -4,6 +4,14 @@
        <title>DAFTAR PESERTA UJIAN DAN NILAI UJIAN AKHIR SEMESTER</title>
        <link href="http://portal.unand.ac.id/css/a-portal-print.css" rel="stylesheet" type="text/css" title="Default" />
        <link href="http://portal.unand.ac.id/css/a-portal-media-print.css" rel="stylesheet" type="text/css" title="Default" />
+       <style>
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+            }
+        </style>
     </head>
     <body>
           <div class="page">
@@ -79,11 +87,11 @@
                             <td>{{ $value->krs->student->name }}</td>
                             <td style="text-align: center">
                                 @if ($value->status=="0")
-                                    -
+                                    Tidak Hadir
                                 @elseif($value->status=="1")
-                                    v
+                                    Hadir
                                 @else
-                                    i
+                                    Izin
                                 @endif
                             </td>
                             <td></td>
@@ -146,5 +154,8 @@
                         <td>: 45 - 49 = D &nbsp; 00 - 44 = E</td>
                     </tr>
                 </table>
+                <div class="footer">
+                    <p>Sistem Informasi Presensi Ujian/{{ auth('api')->user() ? auth('api')->user()->lecturer->name : "null" }}/{{ date('Y-m-d') }}</p>
+                </div>
     </body>
  </html>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\exam_schedule;
 use PDF;
+use Illuminate\Support\Facades\Auth;
 
 class PrintController extends Controller
 {
