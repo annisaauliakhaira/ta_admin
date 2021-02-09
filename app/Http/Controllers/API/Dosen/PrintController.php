@@ -3,32 +3,77 @@
 namespace App\Http\Controllers\Api\Dosen;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\exam_schedule;
 use PDF;
-use Illuminate\Support\Facades\Auth;
+use App\Helper\helper;
 
 class PrintController extends Controller
 {
     public function printDaftarHadir($id)
     {
-        ini_set('max_execution_time', 300);
-        $data = exam_schedule::find($id);
-        $pdfName = "DAFTAR HADIR UJIAN_".$data->classe->name.'_'.$data->examtype->name.'.pdf';
-        $pdf = PDF::loadView('print.pesertaujian', array('data' => $data));
-        $pdf->setPaper('a4', 'potrait');
-        return $pdf->download($pdfName);
-        return $pdf->stream();
+        $dataPrint = exam_schedule::find($id);
+        if(!app('auth')->user()->lecturer->email){
+            return response()->json([
+                'success'=>false,
+                'data'=> "Email User Belum Ada."
+            ], 409);
+        }
+
+        if(!$dataPrint->verified){
+            return response()->json([
+                'success'=>false,
+                'data'=> "Data Ujian Belum di Konfirmasi Pengawas"
+            ], 409);
+        }
+
+        $dataEmail = [
+            'to' => app('auth')->user()->lecturer->email,
+            'name' => app('auth')->user()->lecturer->name,
+            'kelas' => $dataPrint->classe->name,
+            'Tanggal_ujian' => $dataPrint->date,
+            'waktu_mulai' => $dataPrint->start_hour,
+            'waktu_selesai' => $dataPrint->ending_hour,
+            'title' => "DAFTAR KEHADIRAN UJIAN",
+            'titlePDF' => "DAFTAR KEHADIRAN UJIAN_".$dataPrint->classe->name.'_'.$dataPrint->examtype->name.'.pdf'
+        ];
+        helper::sendMail((object)$dataEmail, $dataPrint, 'print.pesertaujian');
+        return response()->json([
+            'success'=>true,
+            'data'=> "Laporan Daftar Kehadian Ujian dikirim KeEmail ".app('auth')->user()->lecturer->email
+        ], 200);
     }
 
-    public function cetakBerita($id)
+    public function cetakBeritaAcara($id)
     {
-        ini_set('max_execution_time', 300);
-        $data = exam_schedule::find($id);
-        $pdfName = "BERITA ACARA UJIAN_".$data->classe->name.'_'.$data->examtype->name.'.pdf';
-        $pdf = PDF::loadView('print.beritaacara', array('data' => $data));
-        $pdf->setPaper('a4', 'potrait');
-        return $pdf->download($pdfName);
-        return $pdf->stream();
+        $dataPrint = exam_schedule::find($id);
+        if(!app('auth')->user()->lecturer->email){
+            return response()->json([
+                'success'=>false,
+                'data'=> "Email User Belum Ada."
+            ], 409);
+        }
+
+        if(!$dataPrint->verified){
+            return response()->json([
+                'success'=>false,
+                'data'=> "Data Ujian Belum di Konfirmasi Pengawas"
+            ], 409);
+        }
+
+        $dataEmail = [
+            'to' => app('auth')->user()->lecturer->email,
+            'name' => app('auth')->user()->lecturer->name,
+            'kelas' => $dataPrint->classe->name,
+            'Tanggal_ujian' => $dataPrint->date,
+            'waktu_mulai' => $dataPrint->start_hour,
+            'waktu_selesai' => $dataPrint->ending_hour,
+            'title' => "Daftar Berita Acara",
+            'titlePDF' => "Daftar Berita Acara_".$dataPrint->classe->name.'_'.$dataPrint->examtype->name.'.pdf'
+        ];
+        helper::sendMail((object)$dataEmail, $dataPrint, 'print.beritaacara');
+        return response()->json([
+            'success'=>true,
+            'data'=> "Laporan Daftar Berita Acara dikirim KeEmail ".app('auth')->user()->lecturer->email
+        ], 200);
     }
 }

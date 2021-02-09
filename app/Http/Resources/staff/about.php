@@ -13,6 +13,7 @@ class about extends JsonResource
             'id'=>$this->id,
             'name'=>$this->name,
             'username'=>$this->user->username,
+            'image'=>$this->user->getImage()
         ];
     }
 }

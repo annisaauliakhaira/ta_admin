@@ -12,6 +12,7 @@ class user extends JsonResource
             'id'=>$this->id,
             'username'=>$this->username,
             'status'=>$this->status,
+            'image'=>$this->getImage()
         ];
     }
 }

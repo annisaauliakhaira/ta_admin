@@ -60,7 +60,15 @@ class User extends Authenticatable
             return url("/storage/".$this->image);
             // return config('app.url')."/storage/".$this->avatar;
         }
-        return "https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=".urlencode($this->name);
+        $imgName = "";
+        if($this->status==3){
+            $imgName = $this->student->name;
+        }elseif($this->status==2){
+            $imgName = $this->lecturer->name;
+        }elseif($this->status==4){
+            $imgName = $this->staff->name;
+        }
+        return "https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=".urlencode($imgName);
         
     }
 }

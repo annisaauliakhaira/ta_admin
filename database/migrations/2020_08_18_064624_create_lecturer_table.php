@@ -18,7 +18,7 @@ class CreateLecturerTable extends Migration
             $table->foreign('id')->references('id')->on('user')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nip', 25);
             $table->string('name', 50);
-            $table->text('address')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
             $table->primary('id');
         });

@@ -94,14 +94,14 @@
                         <tr>
                             <th style="width: 10%">No.</th>
                             <th>Nama</th>
-                            <th colspan="2">Tanda Tangan</th>
+                            <th colspan="2">Verifikasi</th>
                         </tr>
                         @foreach ($data->staffs as $key => $staff)
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 <td>{{ $staff->name }}</td>
-                                <td> {{ $key%2==0 ? $key+1 : "" }}</td>
-                                <td>{{ $key%2!=0 ? $key+1 : "" }}</td>
+                                <td> {{ $key%2==0 ? $data->verified : "" }}</td>
+                                <td>{{ $key%2!=0 ? $data->verified : "" }}</td>
                             </tr>
                         @endforeach
                         

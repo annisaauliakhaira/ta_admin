@@ -12,6 +12,7 @@ Route::group(['prefix' => 'lecturer'], function(){
         Route::post('isLogin', 'API\User\LecturerController@isLogin');
         Route::post('changePassword', 'API\User\LecturerController@changePassword');
         Route::post('changePicture', 'API\User\LecturerController@changePicture');
+        Route::post('changeEmail', 'API\User\LecturerController@changeEmail');
         Route::post('details', 'API\User\LecturerController@details');
         
         Route::post('examschedule', 'API\Dosen\ExamSchdeuleController@getAllData');
@@ -29,7 +30,8 @@ Route::group(['prefix' => 'lecturer'], function(){
         Route::post('getHistory', 'API\Dosen\presenceController@getHistory');
         Route::post('PresenceHistory/{id}', 'API\Dosen\ExamHistoryController@PresenceHistory');
 
-        Route::get('/print/{id}', 'API\Dosen\PrintController@cetak');
+        Route::get('/print-daftar-hadir/{id}', 'API\Dosen\PrintController@printDaftarHadir');
+        Route::get('/print-berita-acara/{id}', 'API\Dosen\PrintController@cetakBeritaAcara');
         
     });
 });

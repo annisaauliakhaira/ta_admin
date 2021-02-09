@@ -109,6 +109,19 @@
                 <table width="70%"  class="tabel-common">
                     <tr>
                         <th style="width: 15%">No.</th>
+                        <th style="width: 50%">Nama Pengawas</th>
+                        <th>Verifikasi</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center">1</td>
+                        <td>{{ $data->staff->name }}</td>
+                        <td>{{ $data->verified }}</td>
+                    </tr>
+                </table>
+                <br>
+                <table width="70%"  class="tabel-common">
+                    <tr>
+                        <th style="width: 15%">No.</th>
                         <th style="width: 50%">Nama Dosen</th>
                         <th>Tanda Tangan</th>
                     </tr>
@@ -119,19 +132,6 @@
                             <td></td>
                         </tr>
                     @endforeach
-                </table>
-                <br/>
-                <table width="70%"  class="tabel-common">
-                    <tr>
-                        <th style="width: 15%">No.</th>
-                        <th style="width: 50%">Nama Pengawas</th>
-                        <th>Tanda Tangan</th>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center">1</td>
-                        <td>{{ $data->staff->name }}</td>
-                        <td></td>
-                    </tr>
                 </table>
                 <br />
                 <b>Range Nilai</b>

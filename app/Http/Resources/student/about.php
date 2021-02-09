@@ -19,7 +19,8 @@ class about extends JsonResource
             'name'=>$this->name,
             'nim'=>$this->nip,
             'email'=>$this->user->email,
-            'gender'=>$this->gender
+            'gender'=>$this->gender, 
+            'image'=>$this->user->getImage()
         ];
     }
 }

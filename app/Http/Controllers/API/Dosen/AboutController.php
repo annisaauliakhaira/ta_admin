@@ -4,8 +4,6 @@ namespace App\Http\Controllers\API\Dosen;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\lecturer;
-use App\user;
 use App\Http\Resources\dosen\about as aboutResource;
 use Illuminate\Support\Facades\Auth;
 

@@ -169,14 +169,32 @@ class LecturerController extends Controller
                     }
                     return response()->json([
                         'success' => true,
-                        'message' =>['changePicture'=>true]
+                        'data' => "Berhasil Merubah Photo"
                     ], $this->successStatus);
                 }
             } catch (\Exception $th) {
                 return response()->json([
                     'success' => false,
-                    'message' =>$th->getMessage()
+                    'data' =>$th->getMessage()
                 ], $this->successStatus);
             }
+        }
+
+        public function changeEmail(Request $request)
+        {
+            $validator = Validator::make($request->all(), [
+                'email' => 'required|email|unique:lecturer,email,'.Auth::user()->lecturer->id,
+                
+            ]);
+            if($validator->fails()){
+                return response()->json(['error' => $validator->errors()],402);
+            }
+            $data=Auth::user()->lecturer;
+            $data->email = $request->email;
+            $data->update();
+            return response()->json([
+                'success'=>true,
+                'data'=> "Berhasil Merubah Email"
+            ], 200);
         }
 }

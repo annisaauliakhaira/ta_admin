@@ -13,7 +13,7 @@ class lecturer extends Model
     // protected $keyType = 'string';
 
     protected $fillable = [
-        'id', 'nip',  'name', 'address'
+        'id', 'nip',  'name', 'email'
     ];
 
     public function user()

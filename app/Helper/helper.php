@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Helper;
+use Illuminate\Support\Facades\Mail;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class helper{
     public static function get($link)
@@ -15,5 +17,18 @@ class helper{
         }catch(\Exception $e){
             return $e->getMessage();
         }
+    }
+
+    public static function sendMail($dataEmail, $dataPrint, $file)
+    {  
+        ini_set('max_execution_time', 300);
+        $pdf = PDF::loadView($file, array('data' => $dataPrint));
+        $pdf->setPaper('a4', 'potrait');
+        Mail::send('print.emailTemplate', array('data' => $dataEmail), function($message)use($dataEmail, $pdf) {
+            $message->to($dataEmail->to, $dataEmail->to)
+                    ->subject($dataEmail->title)
+                    ->attachData($pdf->output(), $dataEmail->titlePDF);
+        });
+        return "Berhasil Mengirim Email";
     }
 }
