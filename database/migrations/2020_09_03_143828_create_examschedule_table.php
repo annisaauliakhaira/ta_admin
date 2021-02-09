@@ -30,6 +30,7 @@ class CreateExamscheduleTable extends Migration
             $table->foreign('examtype_id')->references('id')->on('examtype')->onDelete('cascade')->onUpdate('cascade');
             $table->primary('id');
             $table->unique(['class_id', 'examtype_id']);
+            $table->timestamp('verified')->nullable();
             $table->timestamps();
         });
     }

@@ -33,8 +33,8 @@ class DatabaseSeeder extends Seeder
         // $this->call(siaLecturerClass::class);   
         // $this->call(siaKrs::class);  
         // $this->call(examtypeseeder::class);     
-        $this->call(siaJadwalUjian::class);     
-        $this->call(siaPresence::class);     
+        // $this->call(siaJadwalUjian::class);     
+        // $this->call(siaPresence::class);     
         
     }
 }

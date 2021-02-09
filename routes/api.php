@@ -11,6 +11,7 @@ Route::group(['prefix' => 'lecturer'], function(){
     Route::group(['middleware' => 'auth:api'], function(){
         Route::post('isLogin', 'API\User\LecturerController@isLogin');
         Route::post('changePassword', 'API\User\LecturerController@changePassword');
+        Route::post('changePicture', 'API\User\LecturerController@changePicture');
         Route::post('details', 'API\User\LecturerController@details');
         
         Route::post('examschedule', 'API\Dosen\ExamSchdeuleController@getAllData');
@@ -39,8 +40,10 @@ Route::group(['prefix' => 'staff'], function(){
     Route::group(['middleware' => 'auth:api'], function(){
         Route::post('isLogin', 'API\User\StaffController@isLogin');
         Route::post('changePassword', 'API\User\StaffController@changePassword');
+        Route::post('changePicture', 'API\User\StaffrController@changePicture');
         Route::post('details', 'API\User\StaffController@details');
         Route::post('examschedule','API\Staff\ExamScheduleContoller@getAllData');
+        Route::post('verified/{id}','API\Staff\ExamScheduleContoller@verified');
         Route::post('about', 'API\Staff\AboutController@getAllData');
         Route::post('examclass/{id}', 'API\Staff\ExamClassesController@getData');
         Route::post('logout', 'API\User\StaffController@logout');
@@ -60,6 +63,7 @@ Route::group(['prefix' => 'student'], function(){
 
     Route::group(['middleware' => 'auth:api'], function(){
         Route::post('changePassword', 'API\User\StudentController@changePassword');
+        Route::post('changePicture', 'API\User\StudentController@changePicture');
         Route::post('isLogin', 'API\User\StudentController@isLogin');
         Route::post('details', 'API\User\StudentController@details');
         Route::post('examschedule','API\Student\ExamScheduleController@getAllData');

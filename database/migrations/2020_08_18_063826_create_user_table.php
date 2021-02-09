@@ -19,6 +19,7 @@ class CreateUserTable extends Migration
             $table->string('password');
             $table->integer('status'); // admin=1, dosen=2, pengawas=3, mahasiswa=4
             $table->string('email', 30)->nullable();
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

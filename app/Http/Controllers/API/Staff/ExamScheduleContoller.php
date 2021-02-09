@@ -29,4 +29,23 @@ class ExamScheduleContoller extends Controller
               ], 405);
         }
     }
+
+    public function verified($id)
+    {
+        try {
+            $data = exam_schedule::find($id);
+            $data->verified = now();
+            $data->update();
+            return response()->json([
+                'success'=>true,
+                'data'=>"Berhasil Merubah Data"
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'description' => 'Gagal Merubah Data',
+                'errors'    => $e->getMessage(),
+            ], 405);
+        }
+    }
 }

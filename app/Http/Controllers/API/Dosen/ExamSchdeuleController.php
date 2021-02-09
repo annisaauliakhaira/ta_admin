@@ -44,7 +44,7 @@ class ExamSchdeuleController extends Controller
                     'success'=>true,
                     'data'=>"Berhasil Merubah Data"
                 ]);
-            }
+            } 
             return response()->json([
                 'success'=>false,
                 'data'=>"Sudah Masuk ke Area"
@@ -57,5 +57,6 @@ class ExamSchdeuleController extends Controller
             ], 405);
         }
     }
+    
 
 }

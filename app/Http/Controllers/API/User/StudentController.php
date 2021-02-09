@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\user\student;
 use App\Http\Resources\user\user;
 use App\student as AppStudent;
-use Illuminate\Support\Facades\{Hash, Validator};
+use Illuminate\Support\Facades\{Hash, Storage, Validator};
 
 class StudentController extends Controller
 {
@@ -141,6 +141,42 @@ class StudentController extends Controller
                     'success' => true,
                     'message' =>['changePassword'=>false]
                 ], 401);
+            }
+        }
+
+        public function changePicture(Request $request)
+        {
+            $validator = Validator::make($request->all(), [
+                'image' =>'required|image|mimes:jpg,png,jpeg,gif'
+            ]);
+
+            if($validator->fails()){
+                return response()->json([
+                    'success' => false,
+                    'message' => $validator->errors()
+                ], 401);
+            }
+            try{
+                if($request->hasFile('image') && $request->image->isValid()){
+                    $user = app('auth')->user();
+                    $old_image = $user->image;
+                    $fileext = $request->image->extension();
+                    $filename = $user->FileNameimage().'.'.$fileext;
+                    $user->image = $request->file('image')->storeAs('images', $filename,'public');
+                    $user->update();
+                    if($old_image){
+                        Storage::disk('public')->delete($old_image);
+                    }
+                    return response()->json([
+                        'success' => true,
+                        'message' =>['changePicture'=>true]
+                    ], $this->successStatus);
+                }
+            } catch (\Exception $th) {
+                return response()->json([
+                    'success' => false,
+                    'message' =>$th->getMessage()
+                ], $this->successStatus);
             }
         }
 }
